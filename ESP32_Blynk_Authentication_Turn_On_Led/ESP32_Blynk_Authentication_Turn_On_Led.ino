@@ -17,7 +17,7 @@
 // See the Device Info tab, or Template settings
 #define BLYNK_TEMPLATE_ID "TMPLmbdI9t3f"
 #define BLYNK_DEVICE_NAME "Drone Controller"
-#define BLYNK_AUTH_TOKEN  "CP9e4Ja46xcDtQO39ayeuUZMlWU5hMmc"
+#define BLYNK_AUTH_TOKEN "CP9e4Ja46xcDtQO39ayeuUZMlWU5hMmc"
 
 // Comment this out to disable prints and save space
 #define BLYNK_PRINT Serial
@@ -30,23 +30,12 @@ char auth[] = BLYNK_AUTH_TOKEN;
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
-char ssid[] = "Xfab-Visitor";
-char pass[] = "xfab%79415";
+char ssid[] = "WLAN1-0762EH";
+char pass[] = "Lukas@92";
 
-WidgetLED led1(V1);
-BlynkTimer timer;
-
-void blinkLedWidget()  // function for switching off and on LED
-{
-  if (led1.getValue()) {
-    led1.off();
-    digitalWrite(LED_BUILTIN, LOW)
-    Serial.println("LED on V1: off");
-  } else {
-    led1.on();
-    digitalWrite(LED_BUILTIN, HIGH); 
-    Serial.println("LED on V1: on");
-  }
+BLYNK_WRITE(V0) {
+  int pinvalue = param.asInt();
+  digitalWrite(LED_BUILTIN, pinvalue);
 }
 
 void setup()
@@ -54,8 +43,8 @@ void setup()
   // Debug console
   Serial.begin(115200);  
   Blynk.begin(auth, ssid, pass);
+  
   pinMode(LED_BUILTIN, OUTPUT);
-  timer.setInterval(1000L, blinkLedWidget);
 
   // You can also specify server:
   //Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
@@ -65,7 +54,7 @@ void setup()
 void loop()
 {
   Blynk.run();
-  timer.run();
+  // timer.run();
   // You can inject your own code or combine it with other sketches.
   // Check other examples on how to communicate with Blynk. Remember
   // to avoid delay() function!
