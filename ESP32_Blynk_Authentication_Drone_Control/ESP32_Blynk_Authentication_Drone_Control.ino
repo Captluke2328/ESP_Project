@@ -100,6 +100,60 @@ BLYNK_WRITE(V5) {
   Serial.println();
 }
 
+// Alt Hold
+BLYNK_WRITE(V7) {
+  int althold = param.asInt();
+  if (althold == 1)
+  {
+    channelValue[4] = 1265;
+  }
+}
+
+// Stabilize
+BLYNK_WRITE(V12) {
+  int stabilize = param.asInt();
+  if (stabilize == 1)
+  {
+    channelValue[4] = 1105;
+  }
+}
+
+// Loiter
+BLYNK_WRITE(V8) {
+  int loiter = param.asInt();
+  if (loiter == 1)
+  {
+    channelValue[4] = 1426;
+  }
+}
+
+// Guided
+BLYNK_WRITE(V9) {
+  int guided = param.asInt();
+  if (guided == 1)
+  {
+    channelValue[4] = 1902;
+  }
+}
+
+// RTL
+BLYNK_WRITE(V11) {
+  int rtl = param.asInt();
+  if (rtl == 1)
+  {
+    channelValue[4] = 1748;
+  }
+}
+
+// Land
+BLYNK_WRITE(V10) {
+  int land = param.asInt();
+  if (land == 1)
+  {
+    channelValue[4] = 1582;
+  }
+}
+
 // Roll Input
 BLYNK_WRITE(V1) {
   //int pinvalueA = param.asInt();
