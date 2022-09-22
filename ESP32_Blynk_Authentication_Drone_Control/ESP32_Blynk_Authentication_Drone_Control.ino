@@ -5,12 +5,14 @@
    - ESP32 board
    - Decide how to connect to Blynk
      (USB, Ethernet, Wi-Fi, Bluetooth, ...)
+     
+  
+  This configuration is based on FlySky Fs-i6 Mode 1 as follow:
+  CH1 = Aileron (Roll) 
+  CH2 = Elevator (Pitch)
+  CH3 = Throttle
+  CH4 = Rudder (Yaw)
 
-  There is a bunch of great example sketches included to show you how to get
-  started. Think of them as LEGO bricks  and combine them as you wish.
-  For example, take the Ethernet Shield sketch and combine it with the
-  Servo example, or choose a USB sketch and add a code from SendData
-  example.
  *************************************************************/
 
 // Template ID, Device Name and Auth Token are provided by the Blynk.Cloud
